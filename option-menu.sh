@@ -30,11 +30,13 @@ if [ "$PROJECT" = false ]; then
     do
         if [[ $REPLY =~ '^[0-9]+$' ]] && [[ $REPLY -le ${#FOLDERS[@]} ]]; then
             echo -e "\n==========[ \e[0;32m $DIRNAME \e[m ]============\n"
-            PROJECT="~/www/$DIRNAME"
+            PROJECT="${HOME}/www/$DIRNAME"
             break
         else
+
             echo "$REPLY: Not on the list, please enter the number of the project"
         fi
+        echo $REPLY
     done
 fi
 
@@ -61,8 +63,7 @@ do
         if [ "$dircount" -eq 1 ]; then
             cd ${theme[0]}
         elif [ "$dircount" -gt 1 ]; then
-            echo "gt"
-                echo ${theme}
+            echo ${theme}
             select opt in "${theme[@]}";
             do
                 cd ${theme[$REPLY-1]}
@@ -88,7 +89,6 @@ do
             cd ${theme[0]}
             com
         elif [ "$dircount" -gt 1 ]; then
-            echo "gt"
                 echo ${theme}
                 bundle exec compass watch
             select opt in "${theme[@]}";
@@ -117,6 +117,9 @@ do
         ;;
         6)
         cd $PROJECT"/htdocs"
+        break
+        ;;
+        *)
         break
         ;;
     esac
