@@ -30,7 +30,7 @@ if [ "$PROJECT" = false ]; then
     do
         if [[ $REPLY =~ '^[0-9]+$' ]] && [[ $REPLY -le ${#FOLDERS[@]} ]]; then
             echo -e "\n==========[ \e[0;32m $DIRNAME \e[m ]============\n"
-            PROJECT="./www/$DIRNAME"
+            PROJECT="~/www/$DIRNAME"
             break
         else
             echo "$REPLY: Not on the list, please enter the number of the project"
